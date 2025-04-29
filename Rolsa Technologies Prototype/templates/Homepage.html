@@ -1,0 +1,54 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<link rel="stylesheet" href="static/styles.css">
+		<title>Rolsa Technologies - HomePage</title>
+		<div class="navigation">
+			<ul>
+			  <li style="float:left"><a href="/">Rolsa Technologies</a></li>
+			  <li><a href="/Account">Account</a></li>
+			  <li><a href="/Booking">Booking</a></li>
+			  <li><a href="/EnergyUsage">Your Energy Usage</a></li>
+			  <li><a href="/CarbonFootprint">Your Carbon Footprint</a></li>
+			</ul>
+		</div>
+	</head>
+	<body>
+		<div class="body">
+			<h1 style="text-align: center; padding-top: 0.2vh">Energy Products on the market</h1>
+			<div class="form-list">
+				{% for i in range(0, length) %}
+				<div class="product-card" data-name="{{products[i][1]}}" data-description="{{products[i][2]}}" data-price="£{{products[i][3]}}">
+						<img src={{products[i][4]}}></img>
+						<br>
+						<label>{{products[i][1]}}</label>
+						<button name="view-more" class="view-more">View More</button>
+				</div>		
+				{% endfor %}
+			</div>
+			<div id="product-modal" class="modal">
+				<div class="modal-card">
+					<span class="close">&times;</span>
+					<h2 id="modal-title"></h2>
+					<p id="modal-description"></p>
+					<p id="modal-price"></p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		document.addEventListener("click", (e) => { 
+			const modal = document.getElementById('product-modal');
+			if (e.target.classList.contains('view-more')) {
+				let product = e.target.closest(".product-card");
+				document.getElementById("modal-title").textContent = product.dataset.name;
+				document.getElementById("modal-description").textContent = product.dataset.description;
+				document.getElementById("modal-price").textContent = product.dataset.price;
+				modal.style.display = "flex";
+			}
+			if (e.target.classList.contains('close') || e.target === modal) {
+				modal.style.display = "none";
+			}
+		});
+	</script>
+</html>

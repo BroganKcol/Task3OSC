@@ -1,0 +1,365 @@
+		/* Navigation Bar */
+		
+		.body{
+			background: rgb(168, 221, 183);
+			height: 100%
+		}
+		
+		.navigation ul {
+		  list-style-type: none;
+		  margin: 0;
+		  padding: 0;
+		  overflow: hidden;
+		  border: 1px solid #e7e7e7;
+		  background: rgb(246, 233, 182)
+		}
+
+		.navigation li {
+		  float: right;
+		}
+
+		.navigation li a {
+		  display: block;
+		  color: #000000;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		}
+
+		.navigation li a:hover:not(.active) {
+		  background: rgba(80, 60, 0, 0.5);
+		}
+
+		.navigation li a.active {
+		  background: rgba(130, 100, 0, 0.3);
+		}
+		
+		
+		/*BookingPage*/
+		
+		.form-list{
+			display: flex;
+			justify-content: center;
+		}
+		.choice-card{
+			border: 1px solid #e7e7e7;
+			background: rgb(246, 233, 182);
+			margin: 5vh 10vw;
+			text-align: center;
+		}
+		.choice-card img{
+			margin: 0.3vw;
+			width: 20vw;
+			height: auto;
+		}
+		.choice-card label{
+		}		
+		.booking button {
+		  background: rgb(246, 233, 182);
+		  margin-left: 45%;
+		  color: black;
+		  border: 0px solid green;
+		  padding: 0.5vh 3vw;
+		  text-align: center;
+		  text-decoration: none;
+		  
+		}
+		.booking button:hover {
+		  border: 2px solid;
+		  border-color: rgb(166, 153, 102);
+		  background: rgb(206, 193, 142);
+		  cursor: pointer;
+		}
+
+		.booking-card{
+			border: 1px solid #e7e7e7;
+			background: rgb(246, 233, 182);
+			margin: 1vw;
+			width: 40%;
+			padding-bottom: 1.5vh;
+		}
+		.booking-card button {
+		  background: rgb(168, 221, 183);
+		  margin: 0vh 1vw;
+		  color: black;
+		  border: 1px solid green;
+		  padding: 0.5vh 3vw;
+		  text-align: center;
+		  text-decoration: none;
+		  
+		}
+		.booking-card button:hover {
+		  background: rgb(120, 175, 137);
+		  cursor: pointer;
+		}
+		.payment-card{
+			border: 1px solid #e7e7e7;
+			background: rgb(168, 221, 183);
+			margin: 0.3vw;
+			padding: 1vh 1vw;
+		}
+		.payment-card img{
+			margin: 0.3vw;
+			width: 20vw;
+			height: auto;
+		}
+		.container {
+		  position: relative;
+		  cursor: pointer;
+		  -webkit-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+		/* Hide the browser's default radio button */
+		.container input {
+		  position: absolute;
+		  opacity: 0;
+		  cursor: pointer;
+		}
+		
+		/* Create a custom radio button */
+		.checkmark {
+		}
+
+		/* On mouse-over, add a grey background color */
+		.container:hover input ~ .checkmark {
+			border: 5px solid; border-color: #ccc;
+		}
+
+		/* When the radio button is checked, add a blue background */
+		.container input:checked ~ .checkmark {
+		    border: 5px solid; border-color: rgb(118, 171, 133);
+		}
+		
+		/*Account Page*/
+		.form{
+			display: flex;
+		}
+		.form-card{
+			border: 1px solid #e7e7e7;
+			background: rgb(246, 233, 182);
+			margin: 0.3vw;
+			width: 40vw;
+			height: 50vh;
+			padding-left: 0.4vw;
+		}
+		.form-card label{
+			font-size: 15;
+		}
+		.button a {
+		  background: rgb(168, 221, 183);
+		  color: black;
+		  padding: 1vh 2vw;
+		  text-align: center;
+		  text-decoration: none;
+		  float: right;
+		}
+
+		.button a:hover {
+		  background: rgb(120, 175, 137);
+		  border: 1px solid green;
+		}
+		button {
+		  background: rgb(168, 221, 183);
+		  color: black;
+		  border: 0px solid green;
+		  padding: 0.5vh 3vw;
+		  text-align: center;
+		  text-decoration: none;
+		  
+		}
+		button:hover {
+		  border: 1px solid green;
+		  background: rgb(120, 175, 137);
+		  cursor: pointer;
+		}
+
+		/* Carbon Footprint */
+		.body p{
+			font-size:20;
+		}
+		.calculator{
+			display: flex;
+			justify-content: center;
+		}
+		.calculator-card{
+			border: 1px solid #e7e7e7;
+			background: rgb(246, 233, 182);
+			margin: 0.3vw;
+			width: 40vw;
+			height: 40vh;
+			padding-left: 0.4vw;
+		}
+		.calculator-card a {
+		  background: rgb(200, 200, 200);
+		  color: black;
+		  padding: 0.5vw 0.5vw;
+		  text-align: center;
+		  text-decoration: none;
+		}
+		.calculator-card label{
+			font-size: 18;
+		}
+		
+		/* Energy Usage */
+
+		.tracker{
+			display: flex;
+			justify-content: center;
+			padding-top: 10vh;
+		}
+		.tracker-card{
+			border: 1px solid #e7e7e7;
+			background: rgb(246, 233, 182);
+			margin: 0.3vw;
+			width: 60vw;
+			height: auto;
+			padding-bottom: 0.5vh;
+		}
+		
+		/* Home Page */
+		
+		.form-list{
+			display: flex;
+			justify-content: center;
+		}
+		.product-card{
+			border: 1px solid #e7e7e7;
+			background: rgb(246, 233, 182);
+			margin: 0.3vw;
+			text-align: center;
+		}
+		.product-card img{
+			margin: 0.3vw;
+			width: 20vw;
+			height: auto;
+		}
+		.product-card button {
+		  background: rgb(168, 221, 183);
+		  color: black;
+		  border: 1px solid green;
+		  padding: 0.5vh 0.5vw;
+		  text-align: center;
+		  text-decoration: none;
+		  float: right;
+		}
+
+		.product-card button:hover {
+		  background: rgb(120, 175, 137);
+		  cursor: pointer;
+		}
+		.product-card label{
+			padding-left: 5vw
+		}		
+		.modal {
+			display: flex;
+			justify-content: center;
+			position: fixed; /* Sit on top of the page content */
+			display: none; /* Hidden by default */
+			width: 100%; /* Full width (cover the whole page) */
+			height: 100%; /* Full height (cover the whole page) */
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+			z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+		}
+		.modal-card {
+			width: 25%;
+			border: 2px solid;
+			border-color: rgb(126, 113, 62);
+			background: rgb(246, 233, 182);
+			margin: 0.3vw;
+			text-align: center;
+			justify-content: center;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			font-size: 20px;
+			color: black;
+			transform: translate(-50%,-50%);
+			-ms-transform: translate(-50%,-50%);
+		}
+		.close {
+			float: right;
+			cursor: pointer;
+		}
+		
+		/* Login Page */
+
+		.login{
+			display: flex;
+			justify-content: center;
+		}
+		.login-card{
+			border: 1px solid #e7e7e7;
+			background: rgb(246, 233, 182);
+			margin: 0.3vw;
+			width: 40vw;
+			height: auto;
+		}
+		
+		input[type=text], input[type=password], input[type=email], input[type=number] {
+		  width: 75%;
+		  padding: 0.8vw 1vh;
+		  margin-left: 5vw;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		}
+		.login-card label{
+			padding-left: 5vw;
+		}
+		
+		/* Payment Complete */
+
+		/* Payment Page */
+
+		.paymentButton button {
+		  background: rgb(246, 233, 182);
+		  margin-left: 45%;
+		  color: black;
+		  border: 0px solid green;
+		  padding: 0.5vh 3vw;
+		  text-align: center;
+		  text-decoration: none;
+		}
+		.paymentButton button:hover {
+		  border: 1px solid green;
+		  background: rgb(120, 175, 137);
+		}
+		
+		.payment input[type=text] {
+		  width: 40%;
+		  padding: 0.8vw 1vh;
+		  margin-left: 0vw;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		}
+		.payment input[type=number] {
+		  width: 15%;
+		  padding: 0.8vw 1vh;
+		  margin-left: 0vw;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  text-align: center;
+		}
+		
+		/* Signup Page */
+		
+		.login button {
+		  background: rgb(148, 211, 163);
+		  color: white;
+		  padding: 0.8vw 1vh;
+		  margin-left: 5vw;
+		  border: none;
+		  cursor: pointer;
+		  width: 75%;
+		}
+
+		.login button:hover {
+		  background: rgb(108, 171, 123);
+		  border: 1px solid;
+		  border-color: rgb(88, 151, 103);
+		}

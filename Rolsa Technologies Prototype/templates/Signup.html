@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/styles.css">
+		<title>Rolsa Technologies - Sign Up</title>
+		<div class="navigation">
+			<ul>
+			  <li style="float:left"><a href="/">Rolsa Technologies</a></li>
+			  <li><a href="/Account" class="active">Account</a></li>
+			  <li><a href="/Booking">Booking</a></li>
+			  <li><a href="/EnergyUsage">Your Energy Usage</a></li>
+			  <li><a href="/CarbonFootprint">Your Carbon Footprint</a></li>
+			</ul>
+		</div>
+	</head>
+	<body>
+		<div class="body">
+		<h3 style="padding-top: 0.5vw"></h3>
+			<div class="login">
+				<div class="login-card">
+					<h3 style="text-align: center;">Sign Up</h3>
+					<form action="/Signup" method="POST">
+						<label for="email"><b>Email</b></label>
+						<br>
+						<input type="email" placeholder="Enter Email" name="email" required>
+						<br></br>					
+						<label for="username"><b>Username</b></label>
+						<br>
+						<input type="text" placeholder="Enter Username" name="username" minlength="3" required>
+						<br></br>
+						<label for="password"><b>Password</b></label>
+						<br>
+						<input type="password" placeholder="Enter Password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 characters long" required>
+						<br></br>
+						<label for="confirmPassword"><b>Retype Password</b></label>
+						<br>
+						<input type="password" placeholder="Enter Password" name="confirmPassword" id="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 characters long" required>
+						<br></br>
+						<button type="submit" class="login" onclick="return checkPassword()">Sign Up</button>
+						{% if emailExists %}
+						<label style="color: red; font-size: 20px;">Email Already Exists</label>
+						<br>
+						{% endif %}
+						{% if usernameExists %}
+						<label style="color: red; font-size: 20px;">Username Already Exists</label>
+						{% endif %}
+					</form>
+					<script>
+						function checkPassword() {
+							var password = document.getElementById('password').value;
+							var confirmPassword = document.getElementById('confirmPassword').value;
+							if (password === confirmPassword) {
+									return true;
+							} else {
+								alert("Passwords do not match");
+								return false;
+							}
+						}
+					</script>
+					
+					<br>
+				</div>
+			</div>
+			<label style="padding-left: 29.2vw;">Already have an account? <a href="/Login">Sign In</a></label>	
+		</div>
+	</body>
+</html>

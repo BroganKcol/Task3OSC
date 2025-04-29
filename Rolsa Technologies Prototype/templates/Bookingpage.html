@@ -1,0 +1,78 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<link rel="stylesheet" href="static/styles.css">
+		<title>Rolsa Technologies - Booking</title>
+		<div class="navigation">
+			<ul>
+			  <li style="float:left"><a href="/">Rolsa Technologies</a></li>
+			  <li><a href="/Account">Account</a></li>
+			  <li><a href="/Booking" class="active">Booking</a></li>
+			  <li><a href="/EnergyUsage">Your Energy Usage</a></li>
+			  <li><a href="/CarbonFootprint">Your Carbon Footprint</a></li>
+			</ul>
+		</div>
+	</head>
+	<body>
+		<div class="body">
+			<h1 style="text-align: center; padding-top: 02.vh">Booking</h1>
+			<form action="/Booking" method="POST">
+				<div class="form-list">
+					<div class="choice-card">
+							<br>
+							<label class="container">
+							<input type="radio" name="option" onclick="getOption()" value="Consultation">
+							<img class="checkmark" src="https://th.bing.com/th/id/OIP.TWFUD8sI27E9qaVbFkFlPQHaE8?w=276&h=184&c=7&r=0&o=5&pid=1.7"></img>
+							</label>
+							<br>
+							<label>Book a consultation</label>
+					</div>		
+					<div class="choice-card">
+							<br>
+							<label class="container">
+							<input type="radio" name="option" onclick="getOption()" value="Installation">
+							<img class="checkmark" src="https://thearchitectsdiary.com/wp-content/uploads/2020/11/Installing-Solar-Panels-In-Your-Home-1.jpeg"></img>
+							</label>
+							<br>
+							<label>Book an installation</label>
+					</div>
+				</div>
+				<div id="products">
+					<div class="form-list">
+					{% for i in range(0, length) %}
+						<div class="product-card">
+							<br>
+							<label class="container">
+							<input type="radio" name="products" value="{{products[i][1]}}" onclick="getProduct()">
+							<img class="checkmark" src={{products[i][4]}}></img>
+							</label>
+							<br>
+							<label style="padding-left: 3vw">{{products[i][1]}}</label>
+							<label style="float: right; padding-right: 0.3vw;">£{{products[i][3]}}</label>
+						</div>		
+					{% endfor %}
+					</div>
+					<br></br>
+					<div class="booking">
+						<button id="nextButton" type="Submit" name="next">Next</a>
+					</div>
+				</div>
+			</form>
+		</div>	
+	</body>
+	<script>
+	document.getElementById('products').style.visibility = "hidden";
+		function getOption() {
+			var option = document.querySelector('input[name="option"]:checked').value;
+			document.getElementById('products').style.visibility = "visible";
+		
+		}		
+		document.getElementById('nextButton').style.visibility = "hidden";
+		function getProduct() {
+			var option = document.querySelector('input[name="products"]:checked').value;
+			document.getElementById('nextButton').style.visibility = "visible";
+		
+		}	
+	</script>
+</html>
+

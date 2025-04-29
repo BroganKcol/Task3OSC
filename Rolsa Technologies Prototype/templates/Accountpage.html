@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/styles.css">
+		<title>Rolsa Technologies - Account</title>
+		<div class="navigation">
+			<ul>
+			  <li style="float:left"><a href="/">Rolsa Technologies</a></li>
+			  <li><a href="/Account" class="active">Account</a></li>
+			  <li><a href="/Booking">Booking</a></li>
+			  <li><a href="/EnergyUsage">Your Energy Usage</a></li>
+			  <li><a href="/CarbonFootprint">Your Carbon Footprint</a></li>
+			</ul>
+		</div>
+	</head>
+	<body>
+		<div class='body'>
+			<h1 style="text-align: center; padding-top: 0.2vh;">Manage your account</h1>
+			<div class="form" style="float: left; padding-left: 2vw;">
+				<div class="form-card">
+					<h2 style="text-align:center">Consultations/Installations</h2>
+					{% if bookings %}
+					<table>
+						<tr>
+							<th>Booking ID</th>
+							<th>Booking Type</th>
+							<th>Product Name</th>
+							<th>Booking Price</th>
+							<th>Booking Date</th>
+							<th>Booking Address</th>
+						</tr>
+		
+						{% for booking in bookings %}
+						<tr>
+							<td>{{booking[0]}}</td>
+							<td>{{booking[1]}}</td>
+							<td>{{booking[2]}}</td>
+							<td>{{booking[3]}}</td>
+							<td>{{booking[4]}}</td>
+							<td>{{booking[5]}}</td>
+						</tr>
+						{% endfor %}
+						</td>
+					</table>
+					<br></br>
+					<button class="view-more-booking" style="padding: 0.5vw;">Cancel Booking</button>
+					{% else %}
+					<p id="noBooking">You have no Consultations/Installations at this time</p>
+					{% endif %}
+
+					
+				</div>
+			</div>
+			<div class="form" style="float: right; padding-right: 2vw;">
+				<div class="form-card">
+					<h2 style="text-align:center">Your data</h2>
+					<b><p>Your Email: {{email}}</p></b>
+					<b><p>Your Username: {{username}}</p></b>
+					<b><p>Your Password: *******</p></b> 
+					<button class="view-more" style="padding: 0.5vw;">Change Password</button>
+					<br></br>
+					<div class="button" style="float: left;">
+						<a href="/Logout">Sign Out</a>
+					</div>
+				</div>
+			</div>
+			<div id="product-modal" class="modal">
+				<div class="modal-card">
+					<span class="close">&times;</span>
+					<form action="/ChangePassword" method="POST">
+						<br></br>
+						<label for="prevPassword"><b>Previous Password</b></label>
+						<br>
+						<input type="password" style="margin-left: 0vw;" placeholder="Enter Password" name="prevPassword" id="prevPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 characters long" required>
+						<br></br>
+						<label for="password"><b>New Password</b></label>
+						<br>
+						<input type="password" style="margin-left: 0vw;" placeholder="Enter Password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 characters long" required>
+						<br></br>
+						<label for="confirmPassword"><b>Retype New Password</b></label>
+						<br>
+						<input type="password" style="margin-left: 0vw;" placeholder="Enter Password" name="confirmPassword" id="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 characters long" required>
+						<br></br>
+						<button type="submit" class="account" style="margin-left: 1vw;" onclick="return checkPassword()">Change Password</button>
+					</form>
+				</div>
+			</div>
+			<div id="booking-modal" class="modal">
+				<div class="modal-card">
+					<span class="close">&times;</span>
+					<form action="/CancelBooking" method='POST'>
+						<br>
+						<label>Enter the ID of the booking you would like to cancel</label>
+						<br></br>
+						<input style="margin-left: 3vw;" type="number" placeholder="0" name="cancelBookingID" required>
+						<br></br>
+						<button class="account" type="submit" style="margin-left: 1vw;">Cancel Booking</button>
+						<br></br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		document.addEventListener("click", (e) => { 
+			const modal = document.getElementById('product-modal');
+			const bookingModal = document.getElementById('booking-modal');
+			if (e.target.classList.contains('view-more')) {
+				modal.style.display = "flex";
+			}
+			if (e.target.classList.contains('view-more-booking')) {
+				bookingModal.style.display = "flex";
+			}
+			if (e.target.classList.contains('close') || e.target === modal || e.target === bookingModal) {
+				modal.style.display = "none";
+				bookingModal.style.display = "none";
+			}
+		});
+		
+		
+		function checkPassword() {
+			var password = document.getElementById('password').value;
+			var confirmPassword = document.getElementById('confirmPassword').value;
+			if (password === confirmPassword) {
+					return true;
+			} else {
+				alert("Passwords do not match");
+				return false;
+			}
+		}
+		{% if changepass == False %}
+			alert("Incorrect Previous Password")
+		{% endif %}
+		{% if bookingCancelled == True %}
+			alert("Booking cancelled!")
+		{% endif %}
+		{% if incorrectID == True %}
+			alert("Incorrect Booking ID")
+		{% endif %}
+	</script>
+</html>

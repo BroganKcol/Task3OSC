@@ -1,0 +1,69 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<link rel="stylesheet" href="static/styles.css">
+		<title>Rolsa Technologies - Booking</title>
+		<div class="navigation">
+			<ul>
+			  <li style="float:left"><a href="/">Rolsa Technologies</a></li>
+			  <li><a href="/Account">Account</a></li>
+			  <li><a href="/Booking" class="active">Booking</a></li>
+			  <li><a href="/EnergyUsage">Your Energy Usage</a></li>
+			  <li><a href="/CarbonFootprint">Your Carbon Footprint</a></li>
+			</ul>
+		</div>
+	</head>
+	<body>
+		<div class="body">
+			<h2 style="text-align: center; padding-top: 10px">Payment</h2>
+			<form action="/Order" method="POST">
+				<div class="form-list">
+					<div class="booking-card">
+						<h4 style="text-align:center;">Booking</h4>
+						<br></br>
+						<b><label style="padding-left: 0.5vw;">Details</label></b>
+						<br>
+						<label>Product : {{product}}</label>
+						<br>
+						<label>Booking Type : {{type}}</label>
+						<br></br>
+						<label for="date">What date would you like to book for?</label>
+						<input type="date" name="date" id="date" required></input>			
+						<br></br>
+						<label for="address">Enter the address</label>
+						<br>
+						<input type="text" style="margin-left: 0.2vw; width: 50%;" name="address" placeholder="00 example road" required></input>
+						<br></br>
+						<label>Booking cost : £{{price}}</label>
+						<form>
+							<div class="payment">
+								<div class="payment-card">
+									<label for="cardName">Name on Card</label>
+									<label for="cardNumber" style="float:right;" size="16">Card Number</label>
+									<br>
+									<input type="text" name="cardName" pattern="[A-za-z]{6,25}" title="Please enter a valid name! 6-25 characters long" placeholder="Example Name" required></input>
+									<input type="text"style="float:right;" name="cardNumber" placeholder="0000 0000 0000 0000" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" title="Please format like 0000 0000 0000 0000" required></input>
+									<br>
+									<label>Card Expiry</label>
+									<label for="securityNumber" style="float:right;">Security Number</label>
+									<br>
+									<input type="number" name="cardExpiryMonth" placeholder="00" min="1" max="12" required></input>
+									<input type="number" name="cardExpiryYear" placeholder="00" min="25" max="35" required></input>
+									<input type="text" style="float:right; width:15%; text-align: center;" name="securityNumber" placeholder="000" pattern="[0-9]{3}" title="Must be 3 digits long" size="1" required></input>
+								</div>
+								<br>
+								<button type="Submit" class="paymentButton" name="pay">Pay £{{price}}</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</form>
+		</div>	
+	</body>
+	<script>
+		const date = new Date();
+		const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+		const formattedDate = date.toLocaleDateString('en-ca', options);
+		let x = document.getElementById('date').min = formattedDate
+	</script>
+</html>

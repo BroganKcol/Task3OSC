@@ -1,0 +1,64 @@
+<html>
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<head>
+		<link rel="stylesheet" href="static/styles.css">
+		<title>Rolsa Technologies - Energy Usage</title>
+		<div class="navigation">
+			<ul>
+			  <li style="float:left"><a href="/">Rolsa Technologies</a></li>
+			  <li><a href="/Account">Account</a></li>
+			  <li><a href="/Booking">Booking</a></li>
+			  <li><a href="/EnergyUsage" class="active">Your Energy Usage</a></li>
+			  <li><a href="/CarbonFootprint">Your Carbon Footprint</a></li>
+			</ul>
+		</div>
+	</head>
+	<body>
+		<div class="body">
+			<h1 style="text-align:center; padding-top: 0.2vw">Energy Usage Calculator</h1>
+			<div class="calculator">
+				<div class="calculator-card">
+					<h3 style="text-align: center; ">Calculator</h3>
+					<label>How much energy have you been using per day?</label>
+					<input type="number"></input>
+					<label>kWh</label>
+				</div>
+			</div>
+			<div class="tracker">
+				<div class="tracker-card">
+					<h3 style="text-align: center; ">Tracker</h3>
+					<div id="myChart" style="padding-left: 0.5vw; padding-right: 0.5vw; height: 22vh;"></div>
+					<br>
+					<label style="font-size: 15;">If the graph is incorrectly sized please refresh the page.</label>
+				</div>
+			</div>
+			<br></br>
+		</div>
+	</body>
+	<script>
+	google.charts.load('current',{packages:['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+
+	// Set Data
+	const data = google.visualization.arrayToDataTable([
+	  ['Month', 'Usage'],
+	  ["January",232],["February",244],["March",221],["April",268],["May",215]
+	]);
+
+	// Set Options
+	const options = {
+	  title: 'Energy Usage',
+	  hAxis: {title: 'Month'},
+	  vAxis: {title: 'Energy Usage (mWh)'},
+	  legend: 'none'
+	};
+
+	// Draw
+	const chart = new google.visualization.LineChart(document.getElementById('myChart'));
+	chart.draw(data, options);
+
+	}
+	</script>
+</html>

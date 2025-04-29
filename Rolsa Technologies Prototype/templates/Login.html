@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/styles.css">
+		<title>Rolsa Technologies - Sign In</title>
+		<div class="navigation">
+			<ul>
+			  <li style="float:left"><a href="/">Rolsa Technologies</a></li>
+			  <li><a href="/Account" class="active">Account</a></li>
+			  <li><a href="/Booking">Booking</a></li>
+			  <li><a href="/EnergyUsage">Your Energy Usage</a></li>
+			  <li><a href="/CarbonFootprint">Your Carbon Footprint</a></li>
+			</ul>
+		</div>
+	</head>
+	<body>
+		<div class="body">
+		<h3 style="padding-top: 0.5vw"></h3>
+			<div class="login">
+				<div class="login-card">
+					<h3 style="text-align: center;">Sign In</h3>
+					<form action="/Login" method="POST">
+						<label for="username" min="4" max="30"><b>Username/Email</b></label>
+						<br>
+						<input type="text" placeholder="Enter Email / Username" name="username" required>
+						<br></br>
+						<label for="password" min="6" max="30"><b>Password</b></label>
+						<br>
+						<input type="password" placeholder="Enter Password" name="password" required>
+						<br></br>
+						    <button type="submit" class="login">Login</button>
+					</form>
+					<a style="padding-left:0.2vw" href="">Forgot Password</a>
+					<br>
+				</div>
+			</div>
+			<label style="padding-left: 29.2vw;">Don't have an account? <a href="/Signup">Sign Up</a></label>	
+		</div>
+	</body>
+	<script>
+		{% if loggedIn == False %}
+			alert("Incorrect Username or Password")
+		{% endif %}
+	</script>
+</html>
