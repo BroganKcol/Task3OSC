@@ -2,6 +2,8 @@
 
 This is my Rolsa Technology Prototype.
 
+Requirements : Flask, sqlite3
+
 Rolsa Feedback Form A is for users (Non programmers)
 
 Rolsa Feedback Form B is for programmers.
